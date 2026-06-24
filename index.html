@@ -8,11 +8,13 @@
 <body>
     <h1>Password strength checker</h1>
     <input type="password" id="pw" placeholder="Type a password..." />
+    <button id="toggle">Show</button>
 
     <p id="result">Enter a password</p>
 
     <script>
         const input = document.getElementById("pw");
+        const toggle = document.getElementById("toggle")
 
         input.addEventListener("input", function() {
             const password = input.value;
@@ -42,6 +44,16 @@
                 result.style.color = "green";
             }
         });
+
+        toggle.addEventListener("click", function() {
+                if (input.type === "password") {
+                    input.type = "text";
+                    toggle.textContent = "Hide"
+                } else {
+                    input.type = "password";
+                    toggle.textContent = "Show"
+                }
+            });
     </script>
 </body>
 </html>

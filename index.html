@@ -8,5 +8,22 @@
 <body>
     <h1>Password strength checker</h1>
     <input type="password" id="pw" placeholder="Type a password..." />
+
+    <p id="result">Enter a password</p>
+
+    <script>
+        const input = document.getElementById("pw");
+
+        input.addEventListener("input", function() {
+            const password = input.value;
+            const result = document.getElementById("result");
+
+            if (password.length < 8) {
+                result.textContent = "Too short";
+            } else {
+                result.textContent = "Long enough!";
+            }
+        });
+    </script>
 </body>
 </html>

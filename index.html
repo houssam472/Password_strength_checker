@@ -19,9 +19,15 @@
             const result = document.getElementById("result");
 
             if (password.length < 8) {
-                result.textContent = "Too short";
+                result.textContent = "Too short - needs more than 8 characters";
+            } else if (!/[A-Z]/.test(password)) {
+                result.textContent = "Add an uppercase letter";
+            } else if (!/[0-9]/.test(password)) {
+                result.textContent = "Add a number";
+            } else if (!/[^A-Za-z0-9]/.test(password)) {
+                result.textContent = "Add a symbol (!@#...)";
             } else {
-                result.textContent = "Long enough!";
+                result.textContent = "Strong password!"
             }
         });
     </script>

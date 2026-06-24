@@ -18,16 +18,28 @@
             const password = input.value;
             const result = document.getElementById("result");
 
-            if (password.length < 8) {
-                result.textContent = "Too short - needs more than 8 characters";
-            } else if (!/[A-Z]/.test(password)) {
-                result.textContent = "Add an uppercase letter";
-            } else if (!/[0-9]/.test(password)) {
-                result.textContent = "Add a number";
-            } else if (!/[^A-Za-z0-9]/.test(password)) {
-                result.textContent = "Add a symbol (!@#...)";
+            let score = 0;
+            if (password.length >= 8) score++;
+            if (password.length >= 12) score++;
+            if(/[A-Z]/.test(password)) score++;
+            if(/[0-9]/.test(password)) score++;
+            if(/[^A-Za-z0-9]/.test(password)) score++;
+
+            if (password.length === 0) {
+                result.textContent = "Enter a password";
+                result.style.color = "gray";
+            } else if (score <= 1) {
+                result.textContent = "Weak";
+                result.style.color = "red";
+            } else if (score === 2) {
+                result.textContent = "Fair";
+                result.style.color = "orange";
+            } else if (score === 3) {
+                result.textContent = "Good";
+                result.style.color = "steelblue";
             } else {
-                result.textContent = "Strong password!"
+                result.textContent = "Strong";
+                result.style.color = "green";
             }
         });
     </script>

@@ -43,6 +43,19 @@
             font-weight: bold;
             margin-top: 16px;
         }
+        #bar-track {
+            height: 6px;
+            background-color: #ddd;
+            border-radius: 99px;
+            margin-top: 16px;
+            overflow: hidden;
+        }
+        #bar {
+            height: 100%;
+            width: 0%;
+            border-radius: 99px;
+            transition: width 0.3s, background-color 0.3s;
+        }
     </style>
 </head>
 <body>
@@ -50,11 +63,17 @@
     <input type="password" id="pw" placeholder="Type a password..." />
     <button id="toggle">Show</button>
 
+    <div id="bar-track">
+        <div id="bar"></div>
+    </div>
+
     <p id="result">Enter a password</p>
 
     <script>
         const input = document.getElementById("pw");
         const toggle = document.getElementById("toggle")
+        const bar = document.getElementById("bar");
+
 
         input.addEventListener("input", function() {
             const password = input.value;
@@ -70,18 +89,27 @@
             if (password.length === 0) {
                 result.textContent = "Enter a password";
                 result.style.color = "gray";
+                bar.style.width = "0%";
             } else if (score <= 1) {
                 result.textContent = "Weak";
                 result.style.color = "red";
+                bar.style.width = "25%";
+                bar.style.backgroundColor = "red";
             } else if (score === 2) {
                 result.textContent = "Fair";
                 result.style.color = "orange";
+                bar.style.width = "50%";
+                bar.style.backgroundColor = "orange";
             } else if (score === 3) {
                 result.textContent = "Good";
                 result.style.color = "steelblue";
+                bar.style.width = "75%";
+                bar.style.backgroundColor = "steelblue"
             } else {
                 result.textContent = "Strong";
                 result.style.color = "green";
+                bar.style.width = "100%";
+                bar.style.backgroundColor = "green";
             }
         });
 
@@ -93,7 +121,7 @@
                     input.type = "password";
                     toggle.textContent = "Show"
                 }
-            });
+        });
     </script>
 </body>
 </html>

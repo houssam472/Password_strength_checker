@@ -1,6 +1,6 @@
 # Password Strength Checker
 
-A simple browser-based tool that checks the strength of a password in real time — no data sent anywhere, everything runs locally in your browser.
+Weak passwords are one of the most common ways hackers get into accounts. Attacks like brute force (trying millions of combinations automatically) and credential stuffing (using leaked passwords from other sites) can crack a simple password in seconds. A strong password — one that is long, uses mixed characters, and is unique to each account — is your first line of defense against these attacks. That's why I built this tool: instant feedback as you type, no data sent anywhere, everything runs locally in your browser.
 
 ## Features
 
